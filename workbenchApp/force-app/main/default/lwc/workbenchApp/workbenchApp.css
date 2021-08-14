@@ -2,3 +2,12 @@
   display: block;
   background: var(--lwc-colorBackgroundAlt, #ffffff);
 }
+
+.displayInfo {
+  color: rgb(66, 150, 231);
+  border-color: rgb(66, 150, 231);
+  text-align: center;
+  border: solid thin;
+  border-radius: 10px;
+  clear: both;
+}
