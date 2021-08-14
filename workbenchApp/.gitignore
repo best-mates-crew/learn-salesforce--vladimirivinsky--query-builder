@@ -42,3 +42,4 @@ $RECYCLE.BIN/
 .prettierignore
 .forceignore
 .jest.config.js
+package-lock.json
