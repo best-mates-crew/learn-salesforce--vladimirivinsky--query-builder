@@ -33,6 +33,7 @@ Thumbs.db
 ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
+__MACOSX
 
 # Local environment variables
 .env
