@@ -1,5 +1,5 @@
 .slds-form-element__control{
-    display: -webkit-inline-box !important;
+    display: inline-block;
   }
 
 .test{

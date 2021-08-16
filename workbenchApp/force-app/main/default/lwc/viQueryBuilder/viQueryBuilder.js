@@ -1,26 +1,32 @@
 import { LightningElement } from "lwc";
-import { loadStyle } from 'lightning/platformResourceLoader';
-import workbenchStaticResource from '@salesforce/resourceUrl/workbenchStaticResource';
-import mySVG_icon from "@salesforce/resourceUrl/workbenchStaticResource";
+import { loadStyle } from "lightning/platformResourceLoader";
+import workbenchStaticResource from "@salesforce/resourceUrl/workbenchStaticResource";
+
 
 export default class ViQueryBuilder extends LightningElement {
-  warningIcon = mySVG_icon + "/images/warning.svg";
 
   viewOptions = [
-    {'label': 'List', 'value': 'List'},
-    {'label': 'Matrix', 'value': 'Matrix'},
-    {'label': 'Bulk', 'value': 'Bulk'},
-    {'label': 'CSV', 'value': 'CSV'},
-    {'label': 'Bulk XML', 'value': 'Bulk XML'},
-];
+    { label: "List", value: "List" },
+    { label: "Matrix", value: "Matrix" },
+    { label: "Bulk", value: "Bulk" },
+    { label: "CSV", value: "CSV" },
+    { label: "Bulk XML", value: "Bulk XML" }
+  ];
 
   archiveOptions = [
-    {'label': 'Exclude', 'value': 'Exclude'},
-    {'label': 'Include', 'value': 'Include'},
-  ]  
+    { label: "Exclude", value: "Exclude" },
+    { label: "Include", value: "Include" }
+  ];
 
   connectedCallback() {
-    loadStyle(this, workbenchStaticResource + '/styles/main.css');
+    loadStyle(this, workbenchStaticResource + "/styles/main.css");
     this.loaded = true;
-}
+  }
+
+  
+  get warningIcon() {
+    const icon = `${workbenchStaticResource}/images/warning.svg#defs5520`;
+    console.log(icon);
+    return icon;
+  }
 }
