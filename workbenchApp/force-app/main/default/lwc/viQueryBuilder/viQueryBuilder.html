@@ -1,65 +1,136 @@
+<!-- sldsValidatorIgnore -->
 <template>
     <div class="displayInfo">
-      <lightning-icon icon-name="utility:warning" 
-        alternative-text="Info" 
-        title="Info"
-        size="small">
-      </lightning-icon>
-      <p>
-        <lightning-formatted-text
-          value="First choose an object to use the SOQL builder wizard."
-        ></lightning-formatted-text>
-      </p>
+        <lightning-icon icon-name="utility:warning" alternative-text="Info" title="Info" size="small"> </lightning-icon>
+        <p>
+            <lightning-formatted-text value="First choose an object to use the SOQL builder wizard."></lightning-formatted-text>
+        </p>
     </div>
 
     <div>
-      <p>
-        <lightning-formatted-text
-          value="Choose the object, fields, and criteria to build a SOQL query below:"
-        ></lightning-formatted-text>
-      </p>
-      <table>
-        <tr>
-          <td>    
-            <lightning-combobox
-              name="Object"
-              label="Object"
-              value=""
-              placeholder="Select Object"
-              options={options}
-              onchange={handleChange}
-              required>
-            </lightning-combobox>
+        <p>
+            <lightning-formatted-text value="Choose the object, fields, and criteria to build a SOQL query below:"></lightning-formatted-text>
+        </p>
+        <table class="slds-align_absolute-center">
+            <tr>
+                <td>
+                    <lightning-combobox name="Object" label="Object" value="" placeholder="Select Object" options={options} onchange={handleChange} required> </lightning-combobox>
+                </td>
+                <td>
+                    <lightning-radio-group name="View as:" label="View as:" options={viewOptions} value={value} type="radio" variant="label-stacked"> </lightning-radio-group>
+                </td>
+                <td>
+                    <lightning-radio-group
+                        name="Deleted and archived records:"
+                        label="Deleted and archived records:"
+                        options={archiveOptions}
+                        value={value}
+                        type="radio"
+                        variant="label-stacked">
+                    </lightning-radio-group>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <lightning-dual-listbox
+                      name="Fields"
+                      label="Fields:"
+                      options={options}
+                      onchange={handleChange}
+                    ></lightning-dual-listbox>
+                </td>
+                <td colspan="2">
+                  <table>
+                    <tr>
+                      <td>                       
+                        <lightning-combobox
+                          label="Object status:"
+                          name="status"
+                          value={value}
+                          options={options}
+                          onchange={handleChange}>
+                        </lightning-combobox>
+                      </td>
+                      <td>                        
+                        <lightning-combobox
+                        name="status"
+                        value={value}
+                        options={options}
+                        onchange={handleChange}>
+                        </lightning-combobox>
+                      </td>
+                      <td>
+                        <lightning-combobox
+                          name="status"
+                          value={value}
+                          options={options}
+                          onchange={handleChange}>
+                        </lightning-combobox>
+                      </td>
+                      <td>    4   </td>
+                      <td>
+                        <lightning-input label="Max Records:" type="number" name="input6"></lightning-input>
+                      </td>
+                      <td>6</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <lightning-combobox
+                          label="Filter results by:"
+                          name="status"
+                          value={value}
+                          options={options}
+                          onchange={handleChange}>
+                        </lightning-combobox>
+                    </td>
+                    <td>                        
+                      <lightning-combobox
+                        name="status"
+                        value={value}
+                        options={options}
+                        onchange={handleChange}>
+                      </lightning-combobox>
+                    </td>
+                    <td>
+                      <lightning-combobox
+                        name="status"
+                        value={value}
+                        options={options}
+                        onchange={handleChange}>
+                      </lightning-combobox>
+                      </td>
+                      <td>4</td>
+                      <td>5</td>
+                      <td>
+                        <lightning-button-icon 
+                          icon-name="utility:settings" 
+                          variant="container" 
+                          alternative-text="Settings" 
+                          title="Settings">
+                        </lightning-button-icon>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+                
+            </tr>
             
-          </td>
-          <td>
-            <lightning-radio-group 
-              name="View as:"
-              label="View as:"
-              options={viewOptions}
-              value={value}
-              type="radio"
-              variant="label-stacked">
-            </lightning-radio-group>
-          </td>
-          <td>
-            <lightning-radio-group 
-              name="Deleted and archived records:"
-              label="Deleted and archived records:"
-              options={archiveOptions}
-              value={value}
-              type="radio"
-              variant="label-stacked">
-            </lightning-radio-group>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
+            <tr>
+                <td colspan="3">
+                  <lightning-input 
+                    label="Enter or modify a SOQL query below:" 
+                    type="text" 
+                    name="input6"></lightning-input>
+                  <div>
+                    <lightning-button label="Query" 
+                      title="Non-primary action" 
+                      onclick={handleClick} 
+                      class="slds-m-left_x-small">
+                    </lightning-button>
+                  </div>
+                </td>
+            </tr>
+        </table>
     </div>
+
 </template>
