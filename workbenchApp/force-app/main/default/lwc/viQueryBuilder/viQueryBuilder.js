@@ -22,11 +22,4 @@ export default class ViQueryBuilder extends LightningElement {
     loadStyle(this, workbenchStaticResource + "/styles/main.css");
     this.loaded = true;
   }
-
-  
-  // get infoIcon() {
-  //   const icon = `${workbenchStaticResource}/images/info.svg#`;
-  //   console.log(icon)
-  //   return icon;
-  // }
 }
