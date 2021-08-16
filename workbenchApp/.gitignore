@@ -43,4 +43,3 @@ __MACOSX
 .prettierignore
 .forceignore
 .jest.config.js
-package-lock.json
