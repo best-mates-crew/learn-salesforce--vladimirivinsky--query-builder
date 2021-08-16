@@ -1,9 +1,9 @@
 <template>
     <div class="displayInfo">
-      <lightning-icon
-        src={warningIcon}
-        size="small"
-        alternative-text="Indicates approval">
+      <lightning-icon icon-name="utility:warning" 
+        alternative-text="Info" 
+        title="Info"
+        size="small">
       </lightning-icon>
       <p>
         <lightning-formatted-text
@@ -13,6 +13,11 @@
     </div>
 
     <div>
+      <p>
+        <lightning-formatted-text
+          value="Choose the object, fields, and criteria to build a SOQL query below:"
+        ></lightning-formatted-text>
+      </p>
       <table>
         <tr>
           <td>    

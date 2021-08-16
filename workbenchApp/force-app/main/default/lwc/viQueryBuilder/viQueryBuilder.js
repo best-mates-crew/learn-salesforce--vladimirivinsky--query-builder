@@ -24,9 +24,9 @@ export default class ViQueryBuilder extends LightningElement {
   }
 
   
-  get warningIcon() {
-    const icon = `${workbenchStaticResource}/images/warning.svg#defs5520`;
-    console.log(icon);
-    return icon;
-  }
+  // get infoIcon() {
+  //   const icon = `${workbenchStaticResource}/images/info.svg#`;
+  //   console.log(icon)
+  //   return icon;
+  // }
 }

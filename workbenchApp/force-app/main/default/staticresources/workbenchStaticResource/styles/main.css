@@ -1,7 +1,4 @@
 .slds-form-element__control{
-    display: inline-block;
+    display: -webkit-inline-box !important;
   }
 
-.test{
-    color: red;
-}
