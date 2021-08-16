@@ -3,15 +3,11 @@
 
     <types>
         <members>*</members>
-        <name>ApexClass</name>
+        <name>Profile</name>
     </types>
     <types>
         <members>*</members>
-        <name>ApexTestSuite</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTrigger</name>
+        <name>PermissionSet</name>
     </types>
 
     <version>51.0</version>
