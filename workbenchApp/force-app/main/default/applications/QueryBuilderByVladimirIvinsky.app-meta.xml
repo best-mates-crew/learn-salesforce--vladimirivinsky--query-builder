@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#00FD00</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>My Query Builder</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>QueryBuilderByVladimirIvinsky</label>
+    <navType>Standard</navType>
+    <tabs>Query_Builder__c</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>standard-Contact</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>QueryBuilderByVladimirIvinsky_UtilityBar</utilityBar>
+</CustomApplication>
