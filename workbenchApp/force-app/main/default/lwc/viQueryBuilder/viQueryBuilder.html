@@ -1,0 +1,59 @@
+<template>
+    <div class="displayInfo">
+      <lightning-icon
+        src={warning_blueIcon}
+        size="medium"
+        alternative-text="Indicates approval">
+      </lightning-icon>
+      <p>
+        <lightning-formatted-text
+          value="First choose an object to use the SOQL builder wizard."
+        ></lightning-formatted-text>
+      </p>
+    </div>
+
+    <div>
+      <table>
+        <tr>
+          <td>    
+            <lightning-combobox
+              name="Object"
+              label="Object"
+              value=""
+              placeholder="Select Object"
+              options={options}
+              onchange={handleChange}
+              required>
+            </lightning-combobox>
+            <lightning-output-field field-name="Name">
+            </lightning-output-field>
+          </td>
+          <td>
+            <lightning-radio-group name="View as:"
+              label="View as:"
+              options={viewOptions}
+              value={value}
+              type="radio"
+              variant="label-stacked">
+            </lightning-radio-group>
+          </td>
+          <td>
+            <lightning-radio-group name="Deleted and archived records:"
+              label="Deleted and archived records:"
+              options={archiveOptions}
+              value={value}
+              type="radio"
+              variant="label-stacked">
+          </lightning-radio-group>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+</template>
