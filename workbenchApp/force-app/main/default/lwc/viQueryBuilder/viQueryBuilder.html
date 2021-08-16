@@ -1,7 +1,7 @@
 <template>
     <div class="displayInfo">
       <lightning-icon
-        src={warning_blueIcon}
+        src={warningIcon}
         size="medium"
         alternative-text="Indicates approval">
       </lightning-icon>
@@ -11,6 +11,8 @@
         ></lightning-formatted-text>
       </p>
     </div>
+
+    <h1 class="test">HEELLLO</h1>
 
     <div>
       <table>
@@ -25,11 +27,11 @@
               onchange={handleChange}
               required>
             </lightning-combobox>
-            <lightning-output-field field-name="Name">
-            </lightning-output-field>
+            
           </td>
           <td>
-            <lightning-radio-group name="View as:"
+            <lightning-radio-group 
+              name="View as:"
               label="View as:"
               options={viewOptions}
               value={value}
@@ -38,13 +40,14 @@
             </lightning-radio-group>
           </td>
           <td>
-            <lightning-radio-group name="Deleted and archived records:"
+            <lightning-radio-group 
+              name="Deleted and archived records:"
               label="Deleted and archived records:"
               options={archiveOptions}
               value={value}
               type="radio"
               variant="label-stacked">
-          </lightning-radio-group>
+            </lightning-radio-group>
           </td>
         </tr>
         <tr>

@@ -1,8 +1,10 @@
 import { LightningElement } from "lwc";
+import { loadStyle } from 'lightning/platformResourceLoader';
+import workbenchStaticResource from '@salesforce/resourceUrl/workbenchStaticResource';
 import mySVG_icon from "@salesforce/resourceUrl/workbenchStaticResource";
 
 export default class ViQueryBuilder extends LightningElement {
-  warning_blueIcon = mySVG_icon + "#warning_blue";
+  warningIcon = mySVG_icon + "/images/warning.svg";
 
   viewOptions = [
     {'label': 'List', 'value': 'List'},
@@ -17,8 +19,8 @@ export default class ViQueryBuilder extends LightningElement {
     {'label': 'Include', 'value': 'Include'},
   ]  
 
-  async connectedCallback() {
-    await loadStyle(this, workbenchStaticResource + '/styles/main.css');
+  connectedCallback() {
+    loadStyle(this, workbenchStaticResource + '/styles/main.css');
     this.loaded = true;
 }
 }
