@@ -3,7 +3,7 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>workbenchApp</componentName>
+                <componentName>viQueryBuilder</componentName>
             </componentInstance>
         </itemInstances>
         <mode>Replace</mode>
