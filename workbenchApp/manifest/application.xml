@@ -3,11 +3,15 @@
 
     <types>
         <members>*</members>
-        <name>ContentAsset</name>
+        <name>PermissionSet</name>
     </types>
     <types>
         <members>*</members>
-        <name>ConnectedApp</name>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ContentAsset</name>
     </types>
     <types>
         <members>*</members>
