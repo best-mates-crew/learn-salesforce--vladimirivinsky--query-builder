@@ -1,9 +1,7 @@
 import { LightningElement, wire } from "lwc";
-import { getObjectInfos } from 'lightning/uiObjectInfoApi';
-import ACCOUNT_OBJECT from '@salesforce/schema/Account';
-import OPPORTUNITY_OBJECT from '@salesforce/schema/Opportunity';
 import { loadStyle } from "lightning/platformResourceLoader";
 import workbenchStaticResource from "@salesforce/resourceUrl/workbenchStaticResource";
+import getobjNames from "@salesforce/apex.ObjectRetieveController.getobjNames"
 
 export default class ViQueryBuilder extends LightningElement {
     viewOptions = [
@@ -19,8 +17,19 @@ export default class ViQueryBuilder extends LightningElement {
         { label: "Include", value: "Include" }
     ];
 
-    @wire(getObjectInfos, { objectApiNames: [ ACCOUNT_OBJECT, OPPORTUNITY_OBJECT ] })
-    objectInfo;
+    @wire(getobjNames)
+    objNames;
+
+    @wire(getobjNames)
+    wiredobjNames({ error, data }) {
+        if (data) {
+            this.objNames = data;
+            this.error = undefined;
+        } else if (error) {
+            this.error = error;
+            this.objNames = undefined;
+        }
+    }
 
 
 
@@ -30,6 +39,8 @@ export default class ViQueryBuilder extends LightningElement {
         this.loaded = true;
     }
 
+
+
     get options() {
       return [
           { label: 'New', value: 'new' },
@@ -38,7 +49,7 @@ export default class ViQueryBuilder extends LightningElement {
       ];
   }
 
-  handleChange(event) {
+    handleChange(event) {
       this.value = event.detail.value;
   }
 
