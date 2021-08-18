@@ -1,7 +1,6 @@
-<!-- sldsValidatorIgnore -->
 <template>
     <div class="slds-card">
-        <div class="slds-p-around_medium">
+        <div class="slds-var-p-around_medium">
             <div class="displayInfo">
                 <lightning-icon
                     icon-name="utility:warning"
@@ -18,7 +17,7 @@
             </div>
         </div>
 
-        <div class="slds-p-around_medium">
+        <div class="slds-var-p-around_medium">
             <div class="slds-grid slds-wrap slds-grid_vertical-align-end">
                 <div class="slds-col slds-size_1-of-1">
                     <span>
@@ -33,8 +32,8 @@
                             name="Object"
                             label="Object"
                             value=""
-                            placeholder="Select Object"
-                            options={options}
+                            placeholder="Select Objects"
+                            options={viewOptions}
                             onchange={handleChange}
                             required
                         >
@@ -46,7 +45,7 @@
                         <lightning-radio-group
                             name="View as:"
                             label="View as:"
-                            options={viewOptions}
+                            options={vOptions}
                             value={value}
                             type="radio"
                             variant="label-stacked"
@@ -68,95 +67,8 @@
                     </span>
                 </div>
 
-                <div class="slds-grid slds-wrap">
-                    <table>
-                        <tr>
-                            <td rowspan="2">
-                                <lightning-dual-listbox
-                                    name="Fields"
-                                    label="Fields:"
-                                    options={options}
-                                    onchange={handleChange}
-                                ></lightning-dual-listbox>
-                            </td>
-                            <td style="width: 150px">
-                                <lightning-combobox
-                                    label="Object status:"
-                                    name="status"
-                                    value={value}
-                                    options={options}
-                                    onchange={handleChange}
-                                >
-                                </lightning-combobox>
-                            </td>
-                            <td>
-                                <lightning-combobox
-                                    name="status"
-                                    value={value}
-                                    options={options}
-                                    onchange={handleChange}
-                                >
-                                </lightning-combobox>
-                            </td>
-                            <td>
-                                <lightning-combobox
-                                    name="status"
-                                    value={value}
-                                    options={options}
-                                    onchange={handleChange}
-                                >
-                                </lightning-combobox>
-                            </td>
-                            <td>
-                                <lightning-input
-                                    label="Max Records:"
-                                    type="number"
-                                    name="input6"
-                                ></lightning-input>
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <lightning-combobox
-                                    label="Filter results by:"
-                                    name="status"
-                                    value={value}
-                                    options={options}
-                                    onchange={handleChange}
-                                >
-                                </lightning-combobox>
-                            </td>
-                            <td>
-                                <lightning-combobox
-                                    name="status"
-                                    value={value}
-                                    options={options}
-                                    onchange={handleChange}
-                                >
-                                </lightning-combobox>
-                            </td>
-                            <td>
-                                <lightning-combobox
-                                    name="status"
-                                    value={value}
-                                    options={options}
-                                    onchange={handleChange}
-                                >
-                                </lightning-combobox>
-                            </td>
-
-                            <td>
-                                <lightning-button-icon
-                                    icon-name="utility:settings"
-                                    variant="container"
-                                    alternative-text="Settings"
-                                    title="Settings"
-                                >
-                                </lightning-button-icon>
-                            </td>
-                        </tr>
-                    </table>
+                <div class="slds-col slds-size_1-of-1">
+                    <c-vi-query-builder-objects></c-vi-query-builder-objects>
                 </div>
 
                 <div class="slds-col slds-size_1-of-1">
@@ -170,20 +82,20 @@
                     </span>
                 </div>
                 <div class="slds-grid">
-                <div class="slds-col slds-size_1-of-3">
-                    <span>
-                        <lightning-button type="submit" name="submit" label="Query">
-                        </lightning-button>
-                    </span>
+                    <div class="slds-col slds-size_1-of-3">
+                        <span>
+                            <lightning-button type="submit" name="submit" label="Query">
+                            </lightning-button>
+                        </span>
+                    </div>
+                    <div class="slds-grid slds-col slds-size_1-of-3">
+                        <span class="slds-var-p-around_medium lgc-bg">
+                            <lightning-helptext
+                                content="You'll receive weekly updates"
+                            ></lightning-helptext>
+                        </span>
+                    </div>
                 </div>
-                <div class="slds-grid slds-col slds-size_1-of-3 ">
-                    <span class="slds-p-around_medium lgc-bg">
-                        <lightning-helptext
-                            content="You'll receive weekly updates"
-                        ></lightning-helptext>
-                    </span>
-                </div>
-            </div>
             </div>
         </div>
     </div>
