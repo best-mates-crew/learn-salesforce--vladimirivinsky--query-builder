@@ -26,8 +26,8 @@ public with sharing class ObjectInfoRetrieve {
         @AuraEnabled
         public String value { get; set; }
 
-        ReturnValue(String a, String l) {
-            this.value = a;
+        ReturnValue(String v, String l) {
+            this.value = v;
             this.label = l;
         }
     }
