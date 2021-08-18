@@ -1,0 +1,76 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="slds-grid box">
+        <div class="box1">
+            <lightning-dual-listbox
+                name="Fields"
+                label="Fields:"
+                options={options}
+                onchange={handleChange}
+                disabled
+            ></lightning-dual-listbox>
+        </div>
+        <div class="box2">
+            <lightning-combobox
+                label="Object status:"
+                name="status"
+                value={value}
+                options={options}
+                onchange={handleChange}
+                disabled
+            >
+            </lightning-combobox>
+            <lightning-combobox
+                name="status"
+                value={value}
+                options={options}
+                onchange={handleChange}
+                disabled
+            >
+            </lightning-combobox>
+            <lightning-combobox
+                name="status"
+                value={value}
+                options={options}
+                onchange={handleChange}
+                disabled
+            >
+            </lightning-combobox>
+            <lightning-input label="Max Records:" type="number" name="input6"></lightning-input>
+        </div>
+        <div class="box3">
+            <lightning-combobox
+                label="Filter results by:"
+                name="status"
+                value={value}
+                options={options}
+                onchange={handleChange}
+                disabled
+            >
+            </lightning-combobox>
+            <lightning-combobox
+                name="status"
+                value={value}
+                options={options}
+                onchange={handleChange}
+                disabled
+            >
+            </lightning-combobox>
+            <lightning-combobox
+                name="status"
+                value={value}
+                options={options}
+                onchange={handleChange}
+                disabled
+            >
+            </lightning-combobox>
+            <lightning-button-icon
+                icon-name="utility:settings"
+                variant="container"
+                alternative-text="Settings"
+                title="Settings"
+            >
+            </lightning-button-icon>
+        </div>
+    </div>
+</template>

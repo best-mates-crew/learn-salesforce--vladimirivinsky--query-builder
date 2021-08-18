@@ -1,0 +1,33 @@
+:host{
+    display: block;
+ 
+}
+
+div {
+    border: var(--lwc-borderWidthThick, 2px) solid green
+}
+
+.box{
+    display: grid;
+    width: 45%;
+    grid-template-areas: "b1 b2"
+                         "b1 b3";
+}
+
+.box1{
+    grid-area: b1;
+}
+
+.box2{
+    
+    display:flex;
+    grid-area: b2;
+    align-items: center;
+}
+
+.box3{
+    
+    display:flex;
+    grid-area: b3;
+    align-items: center;
+}
