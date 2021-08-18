@@ -4,6 +4,11 @@
         <application>QueryBuilderByVladimirIvinsky</application>
         <visible>true</visible>
     </applicationVisibilities>
+    <description>Custom</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>QueryBuilderByVladimirIvinsky</label>
+    <tabSettings>
+        <tab>Query_Builder_Page</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>

@@ -11,10 +11,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>QueryBuilderByVladimirIvinsky</label>
     <navType>Standard</navType>
-    <tabs>Query_Builder__c</tabs>
-    <tabs>standard-Account</tabs>
-    <tabs>standard-Feed</tabs>
-    <tabs>standard-Contact</tabs>
+    <tabs>Query_Builder_Page</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>QueryBuilderByVladimirIvinsky_UtilityBar</utilityBar>
 </CustomApplication>
