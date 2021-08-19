@@ -26,46 +26,7 @@
                         ></lightning-formatted-text>
                     </span>
                 </div>
-                <div class="slds-col slds-size_1-of-3">
-                    <span>
-                        <lightning-combobox
-                            name="Object"
-                            label="Object"
-                            value=""
-                            placeholder="Select Objects"
-                            options={viewOptions}
-                            onchange={handleChange}
-                            required
-                        >
-                        </lightning-combobox>
-                    </span>
-                </div>
-                <div class="slds-col slds-size_1-of-3">
-                    <span>
-                        <lightning-radio-group
-                            name="View as:"
-                            label="View as:"
-                            options={vOptions}
-                            value={value}
-                            type="radio"
-                            variant="label-stacked"
-                        >
-                        </lightning-radio-group>
-                    </span>
-                </div>
-                <div class="slds-col slds-size_1-of-3">
-                    <span>
-                        <lightning-radio-group
-                            name="Deleted and archived records:"
-                            label="Deleted and archived records:"
-                            options={archiveOptions}
-                            value={value}
-                            type="radio"
-                            variant="label-stacked"
-                        >
-                        </lightning-radio-group>
-                    </span>
-                </div>
+               
 
                 <div class="slds-col slds-size_1-of-1">
                     <c-vi-query-builder-objects></c-vi-query-builder-objects>

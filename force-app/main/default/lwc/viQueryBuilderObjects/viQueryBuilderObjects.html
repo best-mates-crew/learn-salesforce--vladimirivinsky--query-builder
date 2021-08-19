@@ -1,6 +1,49 @@
 <!-- sldsValidatorIgnore -->
 <template>
-    <div class="slds-grid box">
+    <div class="slds-grid slds-wrap">
+    <div class="slds-col slds-size_1-of-3">
+        <span>
+            <lightning-combobox 
+                if:true={handleChange}
+                name="Object"
+                label="Object"
+                value={viewOptions}
+                options={viewOptions}
+                onchange={handleChange}
+                placeholder="Select Objects"
+                required
+            >
+            </lightning-combobox>
+        </span>
+    </div>
+    <div class="slds-col slds-size_1-of-3">
+        <span>
+            <lightning-radio-group
+                name="View as:"
+                label="View as:"
+                options={vOptions}
+                value={value}
+                type="radio"
+                variant="label-stacked"
+            >
+            </lightning-radio-group>
+        </span>
+    </div>
+    <div class="slds-col slds-size_1-of-3">
+        <span>
+            <lightning-radio-group
+                name="Deleted and archived records:"
+                label="Deleted and archived records:"
+                options={archiveOptions}
+                value={value}
+                type="radio"
+                variant="label-stacked"
+            >
+            </lightning-radio-group>
+        </span>
+    </div>
+    </div>
+    <div class="box">
         <div class="box1">
             <lightning-dual-listbox
                 name="Fields"
