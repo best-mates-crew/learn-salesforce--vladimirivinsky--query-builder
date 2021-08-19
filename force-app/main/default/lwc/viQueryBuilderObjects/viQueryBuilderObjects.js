@@ -7,20 +7,8 @@ import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 
 export default class ViQueryBuilderObjects extends LightningElement {
 
-
-    @api selectedObjectApiName;
-    @track selectedObjInfo;
-
-    @wire(getObjectInfo, { objectApiName: '$selectedObjectApiName' }) selectedObjInfo;
-
-    // get multiselectOpitns() {
-    //     console.log('this.selectedObjInfo:', this.selectedObjInfo);
-    //     return this.selectedObjInfo || 'JOPA';
-    // }
-
     viewOptions = [];
-
-    dValue = [];
+    fieldsName = [];
 
     vOptions = [
         { label: "List", value: "List" },
@@ -35,6 +23,13 @@ export default class ViQueryBuilderObjects extends LightningElement {
         { label: "Include", value: "Include" }
     ];
 
+    @api selectedObjectApiName;
+    @track selectedObjInfo;
+
+    @wire(getObjectInfo, { objectApiName: '$selectedObjectApiName' }) 
+    selectedObjInfo;
+    
+    
     async connectedCallback() {
         await loadStyle(this, workbenchStaticResource + "/styles/main.css");
         this.viewOptions = await getSObjects();
@@ -42,8 +37,10 @@ export default class ViQueryBuilderObjects extends LightningElement {
 
     handleChange(event) {
         this.selectedObjectApiName = { objectApiName: event.detail.value };
-        console.log("this.viewValue: ", this.selectedObjectApiName);
+        
+        this.fieldsName = event.target.fieldsName;
+        console.log("this.selectedObjInfo: ", this.selectedObjInfo);
+        console.log("this.selectedObjectApiName: ", this.selectedObjectApiName);
     }
-
 
 }
