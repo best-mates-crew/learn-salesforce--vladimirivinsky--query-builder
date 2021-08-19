@@ -1,10 +1,26 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, wire, api, track } from 'lwc';
 import { loadStyle } from "lightning/platformResourceLoader";
 import workbenchStaticResource from "@salesforce/resourceUrl/workbenchStaticResource";
 import getSObjects from "@salesforce/apex/ObjectInfoRetrieve.getSObjects";
+import { getObjectInfo } from 'lightning/uiObjectInfoApi';
+
 
 export default class ViQueryBuilderObjects extends LightningElement {
+
+
+    @api selectedObjectApiName;
+    @track selectedObjInfo;
+
+    @wire(getObjectInfo, { objectApiName: '$selectedObjectApiName' }) selectedObjInfo;
+
+    // get multiselectOpitns() {
+    //     console.log('this.selectedObjInfo:', this.selectedObjInfo);
+    //     return this.selectedObjInfo || 'JOPA';
+    // }
+
     viewOptions = [];
+
+    dValue = [];
 
     vOptions = [
         { label: "List", value: "List" },
@@ -19,16 +35,15 @@ export default class ViQueryBuilderObjects extends LightningElement {
         { label: "Include", value: "Include" }
     ];
 
-     async connectedCallback() {
+    async connectedCallback() {
         await loadStyle(this, workbenchStaticResource + "/styles/main.css");
         this.viewOptions = await getSObjects();
-        console.log("ok")
     }
 
     handleChange(event) {
-      this.value = event.detail.value;
-      console.log(this.value);
-  }
+        this.selectedObjectApiName = { objectApiName: event.detail.value };
+        console.log("this.viewValue: ", this.selectedObjectApiName);
+    }
 
 
 }

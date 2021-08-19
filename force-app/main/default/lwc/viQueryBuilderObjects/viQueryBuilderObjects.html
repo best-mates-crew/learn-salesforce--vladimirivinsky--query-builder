@@ -1,7 +1,7 @@
 <!-- sldsValidatorIgnore -->
 <template>
     <div class="slds-grid slds-wrap">
-    <div class="slds-col slds-size_1-of-3">
+     <div class="slds-col slds-size_1-of-3">
         <span>
             <lightning-combobox 
                 if:true={handleChange}
@@ -48,17 +48,17 @@
             <lightning-dual-listbox
                 name="Fields"
                 label="Fields:"
-                options={options}
-                onchange={handleChange}
-                disabled
+                options={dValue}
+                onchange={dualhandleChange}
+                
             ></lightning-dual-listbox>
         </div>
         <div class="box2">
             <lightning-combobox
                 label="Object status:"
                 name="status"
-                value={value}
-                options={options}
+                value={selectedObjectApiName}
+                options={selectedObjectApiName}
                 onchange={handleChange}
                 disabled
             >
