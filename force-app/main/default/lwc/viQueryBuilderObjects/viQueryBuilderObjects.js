@@ -7,29 +7,26 @@ import { OPTIONS, ARCHIVE_OPTIONS } from "./viQueryBuilderObjectsHelper";
 
 export default class ViQueryBuilderObjects extends LightningElement {
     viewOptions = [];
-    fields = [];
     vOptions = OPTIONS;
     archiveOptions = ARCHIVE_OPTIONS;
+    isSpinner = true;
 
     @api selectedObjectApiName;
-    @track selectedObjInfo;
+    selectedObjInfo;
 
     @wire(getObjectInfo, { objectApiName: "$selectedObjectApiName" })
     selectedObjInfo;
 
-    _fields = [];
     get fields() {
-        if (this.selectedObjInfo && this.selectedObjInfo.data && this.selectedObjInfo.data.fields) {
-            this._fields = this.selectedObjInfo.data.fields;
-        }
-        console.log('fileds:', this._fileds);
-        return this._fields;
-
+        const fields = this.selectedObjInfo?.data?.fields || [];
+        return fields;
     }
 
     async connectedCallback() {
         await loadStyle(this, workbenchStaticResource + "/styles/main.css");
         this.viewOptions = await getSObjects();
+        console.log('CONNECTED');
+        this.isSpinner = false;
     }
 
     handleChange(event) {
