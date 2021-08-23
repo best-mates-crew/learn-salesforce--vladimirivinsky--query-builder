@@ -17,12 +17,14 @@ export default class ViQueryBuilderObjects extends LightningElement {
     @wire(getObjectInfo, { objectApiName: "$selectedObjectApiName" })
     selectedObjInfo;
 
+    _fields = [];
     get fields() {
-        let fields = [];
         if (this.selectedObjInfo && this.selectedObjInfo.data && this.selectedObjInfo.data.fields) {
-            fields = this.selectedObjInfo.data.fields;
+            this._fields = this.selectedObjInfo.data.fields;
         }
-        return fields;
+        console.log('fileds:', this._fileds);
+        return this._fields;
+
     }
 
     async connectedCallback() {
