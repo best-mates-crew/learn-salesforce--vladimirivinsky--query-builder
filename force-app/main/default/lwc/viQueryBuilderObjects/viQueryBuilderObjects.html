@@ -5,12 +5,11 @@
             <div class="slds-col slds-size_1-of-3">
                 <span>
                     <lightning-combobox
-                        if:true={handleChange}
                         name="Object"
                         label="Object"
                         value={viewOptions}
                         options={viewOptions}
-                        onchange={handleChange}
+                        onchange={selectObjectHandler}
                         placeholder="Select Objects"
                         required>
                     </lightning-combobox>
@@ -47,8 +46,12 @@
                 <lightning-dual-listbox
                     name="Fields"
                     label="Fields:"
+                    max="1"
                     options={fields}
-                    onchange={changeFileds}>
+                    source-label="Available"
+                    selected-label="Selected"
+                    onchange={handleChange}
+                    >
                 </lightning-dual-listbox>
             </div>
             <div class="box2">
@@ -104,7 +107,6 @@
                     alternative-text="Settings"
                     title="Settings">
                 </lightning-button-icon>
-                <button onclick={changeFileds}>adfa</button>
             </div>
         </div>
     </div>

@@ -19,10 +19,12 @@ export default class ViQueryBuilderObjects extends LightningElement {
 
     get fields() {
         const fields = this.selectedObjInfo?.data?.fields || [];
-        console.log('fields:', fields);
-        return fields;
+        const fieldsValues = fields[Object.entries(fields)];
+        
+        console.log('fieldsValues:', fieldsValues);
+        return fieldsValues;
     }
-
+    
     async connectedCallback() {
         await loadStyle(this, workbenchStaticResource + "/styles/main.css");
         this.viewOptions = await getSObjects();
@@ -30,12 +32,19 @@ export default class ViQueryBuilderObjects extends LightningElement {
         this.isSpinner = false;
     }
 
-    handleChange(event) {
+    selectObjectHandler(event) {
         this.selectedObjectApiName = { objectApiName: event.detail.value };
         // console.log("this.selectedObjInfo: ", this.selectedObjInfo);
         // console.log("this.fieldsName: ", this.fieldsName);
     }
-    // changeFileds(event) {
-    //     console.log("this.fieldsName: ", this.fields);
-    // }
+    _selected = []
+    get selected() {
+        return this._selected.length ? this._selected : 'none';
+    }
+
+    handleChange(e) {
+        this._selected = e.detail.value;
+    }
+ 
+
 }
