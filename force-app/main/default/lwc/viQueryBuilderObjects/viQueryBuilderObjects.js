@@ -47,6 +47,7 @@ export default class ViQueryBuilderObjects extends LightningElement {
         this.fields = this.selectedObjInfo.data.fields;
         
     }
+    
     changeFileds(){
         console.log("this.fieldsName: ", this.fields )
     }
