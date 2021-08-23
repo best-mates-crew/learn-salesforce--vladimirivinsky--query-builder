@@ -4,11 +4,10 @@ import workbenchStaticResource from "@salesforce/resourceUrl/workbenchStaticReso
 import getSObjects from "@salesforce/apex/ObjectInfoRetrieve.getSObjects";
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 
-
 export default class ViQueryBuilderObjects extends LightningElement {
 
     viewOptions = [];
-    fieldsName = [];
+    fields = [];
 
     vOptions = [
         { label: "List", value: "List" },
@@ -25,22 +24,31 @@ export default class ViQueryBuilderObjects extends LightningElement {
 
     @api selectedObjectApiName;
     @track selectedObjInfo;
+    
 
     @wire(getObjectInfo, { objectApiName: '$selectedObjectApiName' }) 
     selectedObjInfo;
-    
-    
+  
     async connectedCallback() {
         await loadStyle(this, workbenchStaticResource + "/styles/main.css");
         this.viewOptions = await getSObjects();
+        
     }
 
     handleChange(event) {
         this.selectedObjectApiName = { objectApiName: event.detail.value };
-        
-        this.fieldsName = event.target.fieldsName;
+        // this.fieldsName = this.selectedObjInfo.data.fields;
         console.log("this.selectedObjInfo: ", this.selectedObjInfo);
-        console.log("this.selectedObjectApiName: ", this.selectedObjectApiName);
+        // console.log("this.fieldsName: ", this.fieldsName);
+    
     }
 
+    get fieldsName(){
+        this.fields = this.selectedObjInfo.data.fields;
+        
+    }
+    
+    changeFileds(){
+        console.log("this.fieldsName: ", this.fields )
+    }
 }
