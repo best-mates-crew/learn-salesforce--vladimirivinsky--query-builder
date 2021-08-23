@@ -3,52 +3,52 @@ import { loadStyle } from "lightning/platformResourceLoader";
 import workbenchStaticResource from "@salesforce/resourceUrl/workbenchStaticResource";
 import getSObjects from "@salesforce/apex/ObjectInfoRetrieve.getSObjects";
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
+import { OPTIONS, ARCHIVE_OPTIONS } from './viQueryBuilderObjectsHelper';
 
 export default class ViQueryBuilderObjects extends LightningElement {
-
     viewOptions = [];
     fields = [];
+    vOptions = OPTIONS;
+    archiveOptions = ARCHIVE_OPTIONS;
 
-    vOptions = [
-        { label: "List", value: "List" },
-        { label: "Matrix", value: "Matrix" },
-        { label: "Bulk", value: "Bulk" },
-        { label: "CSV", value: "CSV" },
-        { label: "Bulk XML", value: "Bulk XML" }
-    ];
 
-    archiveOptions = [
-        { label: "Exclude", value: "Exclude" },
-        { label: "Include", value: "Include" }
-    ];
 
     @api selectedObjectApiName;
     @track selectedObjInfo;
-    
+
+
 
     @wire(getObjectInfo, { objectApiName: '$selectedObjectApiName' }) 
     selectedObjInfo;
-  
+
+
+
+    get fields() {
+        let fields = [];
+        if (this.selectedObjInfo && this.selectedObjInfo.data && this.selectedObjInfo.data.fields) {
+            fields = this.selectedObjInfo.data.fields;
+        }
+        return fields;
+    }
+    
+
+
     async connectedCallback() {
         await loadStyle(this, workbenchStaticResource + "/styles/main.css");
         this.viewOptions = await getSObjects();
-        
     }
+
+
 
     handleChange(event) {
         this.selectedObjectApiName = { objectApiName: event.detail.value };
-        // this.fieldsName = this.selectedObjInfo.data.fields;
-        console.log("this.selectedObjInfo: ", this.selectedObjInfo);
+        // console.log("this.selectedObjInfo: ", this.selectedObjInfo);
         // console.log("this.fieldsName: ", this.fieldsName);
-    
+    }
+    changeFileds(event) {
+        console.log("this.fieldsName: ", this.fields);
     }
 
-    get fieldsName(){
-        this.fields = this.selectedObjInfo.data.fields;
-        
-    }
-    
-    changeFileds(){
-        console.log("this.fieldsName: ", this.fields )
-    }
+
+
 }
