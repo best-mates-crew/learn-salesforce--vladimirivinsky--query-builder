@@ -19,10 +19,12 @@ export default class ViQueryBuilderObjects extends LightningElement {
 
     get fields() {
         const fields = this.selectedObjInfo?.data?.fields || [];
-        const fieldsValues = fields[Object.entries(fields)];
-        
-        console.log('fieldsValues:', fieldsValues);
-        return fieldsValues;
+        const values = Object.values(fields);
+        const result = values.map(v => ({ label:v.label, value:v.apiName }) );
+        console.log('fields:', fields);
+        console.log('values:', values);
+        console.log('result:', result);
+        return result;
     }
     
     async connectedCallback() {
