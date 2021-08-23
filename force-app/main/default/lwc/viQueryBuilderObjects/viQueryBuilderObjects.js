@@ -19,6 +19,7 @@ export default class ViQueryBuilderObjects extends LightningElement {
 
     get fields() {
         const fields = this.selectedObjInfo?.data?.fields || [];
+        console.log('fields:', fields);
         return fields;
     }
 
@@ -34,7 +35,7 @@ export default class ViQueryBuilderObjects extends LightningElement {
         // console.log("this.selectedObjInfo: ", this.selectedObjInfo);
         // console.log("this.fieldsName: ", this.fieldsName);
     }
-    changeFileds(event) {
-        console.log("this.fieldsName: ", this.fields);
-    }
+    // changeFileds(event) {
+    //     console.log("this.fieldsName: ", this.fields);
+    // }
 }
