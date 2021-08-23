@@ -41,6 +41,6 @@ export default class ViQueryBuilderObjects extends LightningElement {
         this.fieldsName = event.target.fieldsName;
         console.log("this.selectedObjInfo: ", this.selectedObjInfo);
         console.log("this.selectedObjectApiName: ", this.selectedObjectApiName);
+        // console.log("this.fieldsName: ", this.fieldsName);
     }
-
 }
