@@ -48,8 +48,8 @@
             <lightning-dual-listbox
                 name="Fields"
                 label="Fields:"
-                options={fieldsName}
-                onchange={va}
+                options={fields}
+                onchange={changeFileds}
                 
             ></lightning-dual-listbox>
         </div>
@@ -114,6 +114,7 @@
                 title="Settings"
             >
             </lightning-button-icon>
+            <button onclick={changeFileds}>adfa</button>
         </div>
     </div>
 </template>

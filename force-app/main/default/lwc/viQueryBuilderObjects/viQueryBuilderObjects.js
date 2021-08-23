@@ -7,7 +7,7 @@ import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 export default class ViQueryBuilderObjects extends LightningElement {
 
     viewOptions = [];
-    fieldsName = [];
+    fields = [];
 
     vOptions = [
         { label: "List", value: "List" },
@@ -28,10 +28,7 @@ export default class ViQueryBuilderObjects extends LightningElement {
 
     @wire(getObjectInfo, { objectApiName: '$selectedObjectApiName' }) 
     selectedObjInfo;
-    
-//  ==============
-
-//  ===============   
+  
     async connectedCallback() {
         await loadStyle(this, workbenchStaticResource + "/styles/main.css");
         this.viewOptions = await getSObjects();
@@ -47,7 +44,10 @@ export default class ViQueryBuilderObjects extends LightningElement {
     }
 
     get fieldsName(){
-        this.fieldsName = this.selectedObjInfo.data.fields;
+        this.fields = this.selectedObjInfo.data.fields;
         
+    }
+    changeFileds(){
+        console.log("this.fieldsName: ", this.fields )
     }
 }
