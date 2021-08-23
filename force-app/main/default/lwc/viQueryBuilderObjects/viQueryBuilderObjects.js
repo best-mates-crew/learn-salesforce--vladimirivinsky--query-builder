@@ -1,9 +1,9 @@
-import { LightningElement, wire, api, track } from 'lwc';
+import { LightningElement, wire, api, track } from "lwc";
 import { loadStyle } from "lightning/platformResourceLoader";
 import workbenchStaticResource from "@salesforce/resourceUrl/workbenchStaticResource";
 import getSObjects from "@salesforce/apex/ObjectInfoRetrieve.getSObjects";
-import { getObjectInfo } from 'lightning/uiObjectInfoApi';
-import { OPTIONS, ARCHIVE_OPTIONS } from './viQueryBuilderObjectsHelper';
+import { getObjectInfo } from "lightning/uiObjectInfoApi";
+import { OPTIONS, ARCHIVE_OPTIONS } from "./viQueryBuilderObjectsHelper";
 
 export default class ViQueryBuilderObjects extends LightningElement {
     viewOptions = [];
@@ -11,17 +11,11 @@ export default class ViQueryBuilderObjects extends LightningElement {
     vOptions = OPTIONS;
     archiveOptions = ARCHIVE_OPTIONS;
 
-
-
     @api selectedObjectApiName;
     @track selectedObjInfo;
 
-
-
-    @wire(getObjectInfo, { objectApiName: '$selectedObjectApiName' }) 
+    @wire(getObjectInfo, { objectApiName: "$selectedObjectApiName" })
     selectedObjInfo;
-
-
 
     get fields() {
         let fields = [];
@@ -30,15 +24,11 @@ export default class ViQueryBuilderObjects extends LightningElement {
         }
         return fields;
     }
-    
-
 
     async connectedCallback() {
         await loadStyle(this, workbenchStaticResource + "/styles/main.css");
         this.viewOptions = await getSObjects();
     }
-
-
 
     handleChange(event) {
         this.selectedObjectApiName = { objectApiName: event.detail.value };
@@ -48,7 +38,4 @@ export default class ViQueryBuilderObjects extends LightningElement {
     changeFileds(event) {
         console.log("this.fieldsName: ", this.fields);
     }
-
-
-
 }
