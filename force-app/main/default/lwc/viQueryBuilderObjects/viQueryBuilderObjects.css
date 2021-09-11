@@ -1,29 +1,28 @@
-:host{
+:host {
     display: block;
- 
+    border: 3px solid red;
 }
 
-.box{
+.box {
     display: grid;
     width: 70%;
-    grid-template-areas: "b1 b2"
-                         "b1 b3";
+    grid-template-areas:
+        "b1 b2"
+        "b1 b3";
 }
 
-.box1{
+.box1 {
     grid-area: b1;
 }
 
-.box2{
-    
-    display:flex;
+.box2 {
+    display: flex;
     grid-area: b2;
     align-items: center;
 }
 
-.box3{
-    
-    display:flex;
+.box3 {
+    display: flex;
     grid-area: b3;
     align-items: center;
 }

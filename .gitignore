@@ -37,9 +37,3 @@ __MACOSX
 
 # Local environment variables
 .env
-
-.vscode
-.eslintignore
-.prettierignore
-.forceignore
-.jest.config.js
